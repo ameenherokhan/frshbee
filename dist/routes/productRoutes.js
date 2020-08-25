@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.productRoutes = void 0;
+const productController_1 = require("../controllers/productController");
+const express = require("express");
+const multer_1 = require("../config/multer");
+exports.productRoutes = express.Router();
+exports.productRoutes.get('/', productController_1.ProductController.getProducts);
+exports.productRoutes.get('/:id', productController_1.ProductController.getProductById);
+exports.productRoutes.post('/', multer_1.upload.single('file'), productController_1.ProductController.addProduct);
+exports.productRoutes.post('/getProductByCategory', productController_1.ProductController.getProductByCategory);
+exports.productRoutes.post('/searchProduct', productController_1.ProductController.searchProduct);
+exports.productRoutes.put('', productController_1.ProductController.updateProduct);
