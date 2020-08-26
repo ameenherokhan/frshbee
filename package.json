@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./dist/server.js"
+    "start": "nodemon ./dist/server.js",
+    "build": "tsc"
   },
   "author": "ameen671999@gmail.com",
   "license": "ISC",
@@ -21,7 +23,8 @@
     "mongodb": "^3.6.0",
     "mongoose": "^5.9.27",
     "multer": "^1.4.2",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -30,7 +33,6 @@
     "@types/helmet": "0.0.48",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/mongoose": "^5.7.32",
-    "@types/multer": "^1.4.4",
-    "typescript": "^3.9.7"
+    "@types/multer": "^1.4.4"
   }
 }

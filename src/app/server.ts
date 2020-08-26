@@ -4,11 +4,12 @@ import * as bodyParser from 'body-parser';
 import * as dotenv from 'dotenv';
 import { MongoConnect } from './db/db';
 import * as helmet  from 'helmet';
-
+import * as compression from 'compression';
 
 dotenv.config();
 var app = express();//req instance of express
-app.use(helmet())
+app.use(helmet());
+app.use(compression())
 
 //app.get("/", (req,res) => res.send("This is get express API"));
 app.use(bodyParser.urlencoded({extended : false}));//ENCODE THE PASSWORD
@@ -19,7 +20,7 @@ app.use("/user",userRoute);
 app.use("/category", categoryRoute);
 app.use('/product',productRoutes);
 
-app.listen(3000,() => {
+app.listen(process.env.PORT || 3000,() => {
       MongoConnect.connect().then(res => console.log("DB connected"));
       console.log("server running on port 3000")
   });
